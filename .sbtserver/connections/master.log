@@ -1,0 +1,25 @@
+New log file opened at Sat Nov 21 11:54:17 GMT 2015 by 49837@UK147906.local
+Taking next connection to: 65334
+New client attempting to connect on port: 65347-65334
+  Address = /192.168.1.104:65334
+This client on port 65347 has uuid dadbddd8-de2e-4db0-bf2e-9078e642b1b6 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-dadbddd8-de2e-4db0-bf2e-9078e642b1b6
+Taking next connection to: 65334
+New client attempting to connect on port: 65348-65334
+  Address = /192.168.1.104:65334
+Handshake exception on socket: 65348
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 65334
+New client attempting to connect on port: 65349-65334
+  Address = /192.168.1.104:65334
+This client on port 65349 has uuid 9927b472-4c4d-469f-87ea-b584a4406588 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-dadbddd8-de2e-4db0-bf2e-9078e642b1b6, activator-9927b472-4c4d-469f-87ea-b584a4406588
+Taking next connection to: 65334
