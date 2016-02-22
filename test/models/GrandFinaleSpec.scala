@@ -30,11 +30,11 @@ class GrandFinaleSpec extends FunSpec with Matchers with BeforeAndAfterEach {
       planes.foreach(plane =>
         gatwick.arrivals(plane))
       assert(gatwick.isFull)
-      assert(!britishAirways.flying)
+      assert(!britishAirways.isFlying)
 
       planes.foreach(plane =>
         gatwick.departures(plane))
-      assert(britishAirways.flying)
+      assert(britishAirways.isFlying)
     }
   }
 

@@ -1,15 +1,13 @@
 package models
 
-class Plane(var flying: Boolean = true) {
+class Plane(var isFlying: Boolean = true) {
 
   def land = {
-   flying = false
-    flying
+    isFlying = false
   }
 
   def fly = {
-    flying = true
-    flying
+    isFlying = true
   }
 
 }

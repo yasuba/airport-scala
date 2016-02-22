@@ -28,8 +28,7 @@ class AirportSpec extends FunSpec with Matchers with MockitoSugar with OneInstan
 
     it("should know that when a plane has landed it's flight status has changed to landed") {
       gatwick.arrivals(plane)
-      when(plane.land).thenReturn(false)
-      assert(!plane.flying)
+      assert(!plane.isFlying)
 
     }
 
@@ -39,10 +38,9 @@ class AirportSpec extends FunSpec with Matchers with MockitoSugar with OneInstan
       gatwick.planes.length should equal(0)
     }
 
-    it("should know that when a plane has taken off it's flight status has changed to flying") {
+    it("should know that when a plane has taken off it's flight status has changed to isFlying") {
       gatwick.arrivals(plane)
       gatwick.departures(plane)
-      when(plane.fly).thenReturn(true)
       verify(plane).fly
     }
   }
@@ -56,24 +54,23 @@ class AirportSpec extends FunSpec with Matchers with MockitoSugar with OneInstan
     it("should force planes to take off when it is full") {
       fillAirport(gatwick)
       gatwick.arrivals(plane2)
-      when(plane.fly).thenReturn(true)
       verify(plane, times(6)).fly
     }
   }
 
   describe("regarding the weather") {
 
-    def beforeEach() = {
-      when(gatwick.weatherReport).thenReturn("windy")
-    }
-
     it("should not allow planes to take off in strong winds") {
+      when(gatwick.weatherReport).thenReturn("windy")
+
       intercept[Exception] {
         gatwick.departures(plane)
       }
     }
 
     it("should not allow planes to land in strong winds") {
+      when(gatwick.weatherReport).thenReturn("windy")
+
       intercept[Exception] {
         gatwick.arrivals(plane)
       }
